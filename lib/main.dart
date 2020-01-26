@@ -1,21 +1,27 @@
+import 'package:delicious/locator.dart';
+import 'package:delicious/ui/router.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+import 'core/models/user.dart';
+import 'core/services/authentication_service.dart';
+
+void main() {
+  setupLocator();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Material App Bar'),
-        ),
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
-          ),
-        ),
+    return StreamProvider<User>(
+      initialData: User.initial(),
+      builder: (context) => locator<AuthenticationService>().userController,
+      child: MaterialApp(
+        title: 'Delicious',
+        theme: ThemeData(),
+        initialRoute: '/',
+        onGenerateRoute: Router.generateRoute,
       ),
     );
   }
