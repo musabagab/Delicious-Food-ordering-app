@@ -15,8 +15,8 @@ class LandingView extends StatelessWidget {
               clipper: RoundedDiagonalPathClipper(),
               child: Container(
                 width: double.infinity,
-                height: 500,
-                color: Colors.white.withOpacity(.7),
+                height: MediaQuery.of(context).size.height * .75,
+                color: Colors.white.withOpacity(.8),
               ),
             ),
           ),
