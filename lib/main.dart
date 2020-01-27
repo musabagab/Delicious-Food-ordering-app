@@ -1,6 +1,5 @@
 import 'package:delicious/locator.dart';
 import 'package:delicious/ui/router.dart';
-import 'package:delicious/ui/shared/app_colors.dart' as prefix0;
 import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
