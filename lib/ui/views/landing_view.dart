@@ -1,8 +1,7 @@
 import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:delicious/ui/shared/ui_helpers.dart';
 import 'package:delicious/ui/widgets/app_button.dart';
-import 'package:delicious/ui/widgets/background.dart';
-import 'package:delicious/ui/widgets/logo.dart';
+import 'package:delicious/ui/widgets/background_with_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
@@ -12,8 +11,7 @@ class LandingView extends StatelessWidget {
     return SafeArea(
       child: Stack(
         children: <Widget>[
-          Background(),
-          Logo(),
+          BackgroundWithLogo(),
           Align(
             alignment: Alignment.bottomCenter,
             child: ClipPath(
