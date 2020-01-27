@@ -1,17 +1,10 @@
+import 'package:delicious/ui/widgets/background.dart';
 import 'package:flutter/material.dart';
 
 class LandingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('assets/images/background.jpg'),
-            fit: BoxFit.cover),
-      ),
-    );
+    return Background();
   }
 }
 
