@@ -1,7 +1,10 @@
+import 'package:delicious/ui/shared/app_colors.dart';
+import 'package:delicious/ui/shared/ui_helpers.dart';
 import 'package:delicious/ui/widgets/background.dart';
 import 'package:delicious/ui/widgets/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class LandingView extends StatelessWidget {
   @override
@@ -22,6 +25,33 @@ class LandingView extends StatelessWidget {
               ),
             ),
           ),
+          Positioned(
+            bottom: 120,
+            left: 50,
+            right: 50,
+            child: Column(
+              children: <Widget>[
+                SignInButton(
+                  Buttons.GoogleDark,
+                  text: "Login via Google",
+                  onPressed: () {},
+                ),
+                UIHelper.verticalSpaceSmall(),
+                SignInButton(
+                  Buttons.Facebook,
+                  text: "Login via Facebook",
+                  onPressed: () {},
+                ),
+                UIHelper.verticalSpaceSmall(),
+                SignInButtonBuilder(
+                  text: 'Login via Email',
+                  icon: Icons.email,
+                  onPressed: () {},
+                  backgroundColor: primaryColor,
+                )
+              ],
+            ),
+          )
         ],
       ),
     );

@@ -14,7 +14,7 @@ class Logo extends StatelessWidget {
             width: 100,
             height: 100,
             color: Colors.white,
-            child: Image.asset('assets/images/eat.png'),
+            child: Image.asset('assets/icons/eat.png'),
           ),
         ),
       ),
