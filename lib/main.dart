@@ -1,5 +1,7 @@
 import 'package:delicious/locator.dart';
 import 'package:delicious/ui/router.dart';
+import 'package:delicious/ui/shared/app_colors.dart' as prefix0;
+import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
       builder: (context) => locator<AuthenticationService>().userController,
       child: MaterialApp(
         title: 'Delicious',
-        theme: ThemeData(),
+        theme: ThemeData(primaryColor: primaryColor),
         initialRoute: '/',
         onGenerateRoute: Router.generateRoute,
       ),

@@ -1,4 +1,5 @@
 import 'package:delicious/ui/widgets/background.dart';
+import 'package:delicious/ui/widgets/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
@@ -9,14 +10,15 @@ class LandingView extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Background(),
+          Logo(),
           Align(
             alignment: Alignment.bottomCenter,
             child: ClipPath(
               clipper: RoundedDiagonalPathClipper(),
               child: Container(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * .75,
-                color: Colors.white.withOpacity(.8),
+                height: MediaQuery.of(context).size.height * .70,
+                color: Colors.white.withOpacity(.85),
               ),
             ),
           ),
