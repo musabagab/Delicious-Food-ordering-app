@@ -21,7 +21,7 @@ class LandingView extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * .70,
-                color: Colors.white.withOpacity(.85),
+                color: Colors.white.withOpacity(.8),
               ),
             ),
           ),
@@ -31,11 +31,11 @@ class LandingView extends StatelessWidget {
             right: 50,
             child: Column(
               children: <Widget>[
-                AppButton(facebookColor, () {}, 'Login Via Facebook'),
+                AppButton(facebookColor, () {}, 'Login via Facebook'),
                 UIHelper.verticalSpaceMedium(),
-                AppButton(primaryColor, () {}, 'Login Via Email'),
+                AppButton(googleColor, () {}, 'Login via Google'),
                 UIHelper.verticalSpaceMedium(),
-                AppButton(googleColor, () {}, 'Login Via Google'),
+                AppButton(primaryColor, () {}, 'Login via Email-ID'),
               ],
             ),
           )
