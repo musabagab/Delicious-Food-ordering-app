@@ -1,7 +1,8 @@
-import 'package:delicious/core/enums/view_state.dart';
-import 'package:delicious/core/viewmodels/auth_model.dart';
+import 'package:delicious/ui/shared/text_styles.dart';
+import 'package:delicious/ui/widgets/authentication_form.dart';
+
+import 'package:delicious/ui/widgets/background_with_logo.dart';
 import 'package:flutter/material.dart';
-import 'base_view.dart';
 
 class AuthView extends StatefulWidget {
   @override
@@ -11,22 +12,15 @@ class AuthView extends StatefulWidget {
 class _AuthViewState extends State<AuthView> {
   @override
   Widget build(BuildContext context) {
-    return BaseView<AuthenticationModel>(
-      builder: (context, model, child) => Scaffold(
-        body: Column(
-          children: <Widget>[
-            model.state == ViewState.Busy
-                ? Text('Wait for server')
-                : FlatButton(
-                    child: Text('Signup'),
-                    onPressed: () async {
-                      model.login(
-                          email: 'ahmed@gmail.com', password: 'ahmed123');
-                    },
-                  )
-          ],
-        ),
-      ),
+    return SafeArea(
+      child: Scaffold(
+          body: Stack(
+        children: <Widget>[
+          BackgroundWithLogo(),
+          Positioned(
+              top: 200, left: 100, right: 100, child: AuthenticationForm())
+        ],
+      )),
     );
   }
 }
