@@ -1,4 +1,5 @@
 import 'package:delicious/core/viewmodels/auth_model.dart';
+import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:delicious/ui/shared/text_styles.dart';
 import 'package:delicious/ui/views/base_view.dart';
 import 'package:flutter/material.dart';
@@ -8,9 +9,12 @@ class AuthenticationForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<AuthenticationModel>(
         builder: (context, model, child) => Container(
+              color: primaryColor,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       FlatButton(
                         onPressed: () {
@@ -32,14 +36,19 @@ class AuthenticationForm extends StatelessWidget {
                       )
                     ],
                   ),
-                  Center(
-                    child: Container(
-                      child: Text(
-                        model.selectedForm,
-                        style: headerStyle,
-                      ),
-                    ),
-                  )
+                  model.selectedForm == 'Login'
+                      ? Container(
+                          child: Text(
+                            'LoginForm',
+                            style: headerStyle,
+                          ),
+                        )
+                      : Container(
+                          child: Text(
+                            'Register Form',
+                            style: headerStyle,
+                          ),
+                        )
                 ],
               ),
             ));

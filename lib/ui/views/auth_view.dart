@@ -17,7 +17,11 @@ class _AuthViewState extends State<AuthView> {
         children: <Widget>[
           BackgroundWithLogo(),
           Positioned(
-              left: 120, width: 300, top: 200, child: AuthenticationForm())
+            left: 80,
+            right: 80,
+            top: 220,
+            child: AuthenticationForm(),
+          )
         ],
       )),
     );
