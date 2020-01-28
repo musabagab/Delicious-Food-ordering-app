@@ -20,7 +20,7 @@ class _AuthViewState extends State<AuthView> {
                 : FlatButton(
                     child: Text('Signup'),
                     onPressed: () async {
-                      model.signUp(
+                      model.login(
                           email: 'ahmed@gmail.com', password: 'ahmed123');
                     },
                   )
