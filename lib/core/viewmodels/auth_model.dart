@@ -8,6 +8,16 @@ import '../../locator.dart';
 class AuthenticationModel extends BaseModel {
   AuthenticationService _authenticationService =
       locator<AuthenticationService>();
+  String selectedForm = 'Login';
+
+  void changeSelectedForm() {
+    if (selectedForm == 'Login') {
+      selectedForm = 'Register';
+    } else {
+      selectedForm = 'Login';
+    }
+    notifyListeners();
+  }
 
   Future signUp({@required String email, @required String password}) async {
     setState(ViewState.Busy);

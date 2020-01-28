@@ -1,4 +1,3 @@
-import 'package:delicious/ui/shared/text_styles.dart';
 import 'package:delicious/ui/widgets/authentication_form.dart';
 
 import 'package:delicious/ui/widgets/background_with_logo.dart';
@@ -18,7 +17,7 @@ class _AuthViewState extends State<AuthView> {
         children: <Widget>[
           BackgroundWithLogo(),
           Positioned(
-              top: 200, left: 100, right: 100, child: AuthenticationForm())
+              left: 120, width: 300, top: 200, child: AuthenticationForm())
         ],
       )),
     );
