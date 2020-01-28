@@ -1,3 +1,4 @@
+import 'package:delicious/core/enums/view_state.dart';
 import 'package:delicious/core/viewmodels/auth_model.dart';
 import 'package:flutter/material.dart';
 import 'base_view.dart';
@@ -14,12 +15,15 @@ class _AuthViewState extends State<AuthView> {
       builder: (context, model, child) => Scaffold(
         body: Column(
           children: <Widget>[
-            FlatButton(
-              child: Text('Signup'),
-              onPressed: () async {
-                model.signUp();
-              },
-            )
+            model.state == ViewState.Busy
+                ? Text('Wait for server')
+                : FlatButton(
+                    child: Text('Signup'),
+                    onPressed: () async {
+                      model.signUp(
+                          email: 'ahmed@gmail.com', password: 'ahmed123');
+                    },
+                  )
           ],
         ),
       ),
