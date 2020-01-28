@@ -1,3 +1,4 @@
+import 'package:delicious/ui/views/auth_view.dart';
 import 'package:delicious/ui/views/landing_view.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +7,8 @@ class Router {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => LandingView());
+      case '/auth':
+        return MaterialPageRoute(builder: (_) => AuthView());
       default:
         return MaterialPageRoute(builder: (_) {
           return Scaffold(

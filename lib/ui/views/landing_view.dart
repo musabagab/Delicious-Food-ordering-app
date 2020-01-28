@@ -33,7 +33,9 @@ class LandingView extends StatelessWidget {
                 UIHelper.verticalSpaceMedium(),
                 AppButton(googleColor, () {}, 'Login via Google'),
                 UIHelper.verticalSpaceMedium(),
-                AppButton(primaryColor, () {}, 'Login via Email-ID'),
+                AppButton(primaryColor, () {
+                  Navigator.of(context).pushNamed('/auth');
+                }, 'Login via Email-ID'),
               ],
             ),
           )

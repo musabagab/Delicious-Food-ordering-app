@@ -1,20 +1,33 @@
 import 'dart:async';
 
-import '../../locator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
+
 import '../models/user.dart';
 
 class AuthenticationService {
-  // Inject our Api
-  var _api;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   StreamController<User> userController = StreamController<User>();
-  Future<bool> login(int userId) async {
-    // Get the user profile for id
-    var fetcheduser = await _api.getUserProfile(userId);
-    // Check if success
-    var hasUser = fetcheduser != null;
-    if (hasUser) {
-      userController.add(fetcheduser);
+
+  Future loginWithEmail(
+      {@required String email, @required String password}) async {
+    try {
+      var user = await _firebaseAuth.signInWithEmailAndPassword(
+          email: email, password: password);
+      return user != null;
+    } catch (e) {
+      return e.message;
     }
-    return hasUser;
+  }
+
+  Future signUpWithEmail(
+      {@required String email, @required String password}) async {
+    try {
+      var authResult = await _firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      return authResult.user != null;
+    } catch (e) {
+      return e.message;
+    }
   }
 }

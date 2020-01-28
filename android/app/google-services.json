@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "472689151576",
+    "firebase_url": "https://delicious-80535.firebaseio.com",
+    "project_id": "delicious-80535",
+    "storage_bucket": "delicious-80535.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472689151576:android:b55742287995943448442d",
+        "android_client_info": {
+          "package_name": "com.musabapps.delicious"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472689151576-cf9crmrcocl83pu40635njlljs02t1mp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnFHoLIWwhl6MKEPcdh2PS4OWPWLttYjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472689151576-cf9crmrcocl83pu40635njlljs02t1mp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
