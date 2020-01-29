@@ -1,4 +1,5 @@
 import 'package:delicious/core/viewmodels/auth_model.dart';
+import 'package:delicious/core/viewmodels/login_model.dart';
 import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:delicious/ui/shared/text_styles.dart';
 import 'package:delicious/ui/views/base_view.dart';
@@ -16,7 +17,6 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
   Widget build(BuildContext context) {
     return BaseView<AuthenticationModel>(
         builder: (context, model, child) => Container(
-              color: Colors.white,
               child: Column(
                 children: <Widget>[
                   Row(
@@ -79,54 +79,70 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                       )
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: model.selectedForm == 'Login'
-                        ? Form(
-                            key: _formKey,
-                            child: Column(
-                              children: <Widget>[
-                                TextFormField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Email ID',
-                                    icon: Icon(
-                                      Icons.email,
-                                      color: primaryColor,
-                                    ),
-                                  ),
-                                  validator: (value) {
-                                    if (value.isEmpty) {
-                                      return 'Please enter some text';
-                                    }
-                                    return null;
-                                  },
-                                ),
-                                TextFormField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Password',
-                                    icon: Icon(
-                                      Icons.lock,
-                                      color: primaryColor,
-                                    ),
-                                  ),
-                                  validator: (value) {
-                                    if (value.isEmpty) {
-                                      return 'Please enter some text';
-                                    }
-                                    return null;
-                                  },
-                                )
-                              ],
-                            ),
-                          )
-                        : Container(
-                            child: Text(
-                              'Register Form',
-                              style: headerStyle,
-                            ),
+                  model.selectedForm == 'Login'
+                      ? new LoginForm(formKey: _formKey)
+                      : Container(
+                          child: Text(
+                            'Register Form',
+                            style: headerStyle,
                           ),
-                  )
+                        )
                 ],
+              ),
+            ));
+  }
+}
+
+class LoginForm extends StatelessWidget {
+  const LoginForm({
+    Key key,
+    @required GlobalKey<FormState> formKey,
+  })  : _formKey = formKey,
+        super(key: key);
+
+  final GlobalKey<FormState> _formKey;
+
+  @override
+  Widget build(BuildContext context) {
+    return BaseView<LoginModel>(
+        builder: (context, model, child) => Form(
+              key: _formKey,
+              child: Container(
+                color: Colors.white,
+                child: Column(
+                  children: <Widget>[
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Email ID',
+                        icon: Icon(
+                          Icons.email,
+                          color: primaryColor,
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Password',
+                        icon: Icon(
+                          Icons.lock,
+                          color: primaryColor,
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                  ],
+                ),
               ),
             ));
   }
