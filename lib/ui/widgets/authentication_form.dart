@@ -1,5 +1,4 @@
 import 'package:delicious/core/viewmodels/auth_model.dart';
-import 'package:delicious/core/viewmodels/login_model.dart';
 import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:delicious/ui/shared/text_styles.dart';
 import 'package:delicious/ui/views/base_view.dart';

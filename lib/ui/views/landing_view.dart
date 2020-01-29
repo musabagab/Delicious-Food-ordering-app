@@ -29,13 +29,22 @@ class LandingView extends StatelessWidget {
             right: 50,
             child: Column(
               children: <Widget>[
-                AppButton(facebookColor, () {}, 'Login via Facebook'),
+                AppButton(
+                    backgroundColor: facebookColor,
+                    onPressed: () {},
+                    buttonText: 'Login via Facebook'),
                 UIHelper.verticalSpaceMedium(),
-                AppButton(googleColor, () {}, 'Login via Google'),
+                AppButton(
+                    backgroundColor: googleColor,
+                    onPressed: () {},
+                    buttonText: 'Login via Google'),
                 UIHelper.verticalSpaceMedium(),
-                AppButton(primaryColor, () {
-                  Navigator.of(context).pushNamed('/auth');
-                }, 'Login via Email-ID'),
+                AppButton(
+                    backgroundColor: primaryColor,
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/auth');
+                    },
+                    buttonText: 'Login via Email-ID'),
               ],
             ),
           )
