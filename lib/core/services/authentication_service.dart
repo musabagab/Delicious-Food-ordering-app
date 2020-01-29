@@ -19,7 +19,7 @@ class AuthenticationService {
       }
       return user != null;
     } catch (e) {
-      return e.toString();
+      return e.message;
     }
   }
 
