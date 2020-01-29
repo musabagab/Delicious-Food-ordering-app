@@ -14,9 +14,12 @@ class AuthenticationService {
     try {
       var user = await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
+      if (user == null) {
+        print('User is null');
+      }
       return user != null;
     } catch (e) {
-      return e.message;
+      return e.toString();
     }
   }
 

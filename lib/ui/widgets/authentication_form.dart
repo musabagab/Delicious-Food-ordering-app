@@ -11,8 +11,6 @@ class AuthenticationForm extends StatefulWidget {
 }
 
 class _AuthenticationFormState extends State<AuthenticationForm> {
-  final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return BaseView<AuthenticationModel>(
@@ -80,7 +78,7 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                     ],
                   ),
                   model.selectedForm == 'Login'
-                      ? new LoginForm(formKey: _formKey)
+                      ? new LoginForm()
                       : Container(
                           child: Text(
                             'Register Form',

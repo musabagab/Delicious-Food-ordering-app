@@ -8,6 +8,7 @@ import '../../locator.dart';
 class AuthenticationModel extends BaseModel {
   AuthenticationService _authenticationService =
       locator<AuthenticationService>();
+
   String selectedForm = 'Login';
 
   void changeSelectedForm() {
@@ -35,21 +36,4 @@ class AuthenticationModel extends BaseModel {
       print(results);
     }
   }
-
-  // Future login({@required String email, @required String password}) async {
-  //   setState(ViewState.Busy);
-  //   var results = await _authenticationService.loginWithEmail(
-  //       email: email, password: password);
-  //   setState(ViewState.Idle);
-  //   if (results is bool) {
-  //     if (results) {
-  //       print('Navigate to homeview');
-  //     } else {
-  //       print('Login failed General');
-  //     }
-  //   } else {
-  //     // firebase message
-  //     print(results);
-  //   }
-  // }
 }

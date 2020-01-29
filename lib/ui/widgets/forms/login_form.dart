@@ -5,14 +5,13 @@ import 'package:delicious/ui/views/base_view.dart';
 import 'package:delicious/ui/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({
-    Key key,
-    @required GlobalKey<FormState> formKey,
-  })  : _formKey = formKey,
-        super(key: key);
+class LoginForm extends StatefulWidget {
+  @override
+  _LoginFormState createState() => _LoginFormState();
+}
 
-  final GlobalKey<FormState> _formKey;
+class _LoginFormState extends State<LoginForm> {
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,7 @@ class LoginForm extends StatelessWidget {
                               color: primaryColor,
                             ),
                           ),
-                          onChanged: (text) {
+                          onSaved: (text) {
                             _emailText = text;
                           },
                           validator: (value) {
@@ -59,7 +58,7 @@ class LoginForm extends StatelessWidget {
                               color: primaryColor,
                             ),
                           ),
-                          onChanged: (text) {
+                          onSaved: (text) {
                             _passwordText = text;
                           },
                           validator: (value) {
@@ -77,7 +76,10 @@ class LoginForm extends StatelessWidget {
                     backgroundColor: primaryColor,
                     buttonText: 'Login',
                     onPressed: () async {
+                      _formKey.currentState.save();
                       if (_formKey.currentState.validate()) {
+                        print(_emailText);
+                        print(_passwordText);
                         model.login(email: _emailText, password: _passwordText);
                       }
                     },
