@@ -1,3 +1,4 @@
+import 'package:delicious/core/services/navigation_service.dart';
 import 'package:delicious/locator.dart';
 import 'package:delicious/ui/router.dart';
 import 'package:delicious/ui/shared/app_colors.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(primaryColor: primaryColor),
         initialRoute: '/',
         onGenerateRoute: Router.generateRoute,
+        navigatorKey: locator<NavigationService>().navigatorKey,
       ),
     );
   }

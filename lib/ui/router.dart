@@ -1,3 +1,4 @@
+import 'package:delicious/core/constants/routes_path.dart' as routes;
 import 'package:delicious/ui/views/auth_view.dart';
 import 'package:delicious/ui/views/landing_view.dart';
 import 'package:flutter/material.dart';
@@ -5,9 +6,9 @@ import 'package:flutter/material.dart';
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case '/':
+      case routes.LandingPage:
         return MaterialPageRoute(builder: (_) => LandingView());
-      case '/auth':
+      case routes.AuthPage:
         return MaterialPageRoute(builder: (_) => AuthView());
       default:
         return MaterialPageRoute(builder: (_) {

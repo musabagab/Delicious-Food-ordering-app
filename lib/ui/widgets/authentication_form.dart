@@ -82,7 +82,7 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                   model.selectedForm == 'Login' ? LoginForm() : RegisterForm(),
                   UIHelper.verticalSpaceSmall(),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).pop(),
+                    onTap: () => model.goBack(),
                     child: Text(
                       'Back to landing page',
                       style: subHeaderStyle,
