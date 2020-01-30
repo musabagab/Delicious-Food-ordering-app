@@ -1,5 +1,7 @@
 import 'package:delicious/core/viewmodels/auth_model.dart';
 import 'package:delicious/ui/shared/app_colors.dart';
+import 'package:delicious/ui/shared/text_styles.dart';
+import 'package:delicious/ui/shared/ui_helpers.dart';
 import 'package:delicious/ui/views/base_view.dart';
 import 'package:delicious/ui/widgets/forms/login_form.dart';
 import 'package:delicious/ui/widgets/forms/register_form.dart';
@@ -78,7 +80,14 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                     ],
                   ),
                   model.selectedForm == 'Login' ? LoginForm() : RegisterForm(),
-                  Text('Back to landing page'),
+                  UIHelper.verticalSpaceSmall(),
+                  GestureDetector(
+                    onTap: () => Navigator.of(context).pop(),
+                    child: Text(
+                      'Back to landing page',
+                      style: subHeaderStyle,
+                    ),
+                  ),
                 ],
               ),
             ));
