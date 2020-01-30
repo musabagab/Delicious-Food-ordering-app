@@ -1,8 +1,8 @@
 import 'package:delicious/core/viewmodels/auth_model.dart';
 import 'package:delicious/ui/shared/app_colors.dart';
-import 'package:delicious/ui/shared/text_styles.dart';
 import 'package:delicious/ui/views/base_view.dart';
 import 'package:delicious/ui/widgets/forms/login_form.dart';
+import 'package:delicious/ui/widgets/forms/register_form.dart';
 import 'package:flutter/material.dart';
 
 class AuthenticationForm extends StatefulWidget {
@@ -77,14 +77,8 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
                       )
                     ],
                   ),
-                  model.selectedForm == 'Login'
-                      ? new LoginForm()
-                      : Container(
-                          child: Text(
-                            'Register Form',
-                            style: headerStyle,
-                          ),
-                        )
+                  model.selectedForm == 'Login' ? LoginForm() : RegisterForm(),
+                  Text('Back to landing page'),
                 ],
               ),
             ));

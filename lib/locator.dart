@@ -1,4 +1,5 @@
 import 'package:delicious/core/viewmodels/auth_model.dart';
+import 'package:delicious/core/viewmodels/register_model.dart';
 import 'package:get_it/get_it.dart';
 
 import 'core/services/authentication_service.dart';
@@ -11,5 +12,6 @@ void setupLocator() {
   locator.registerLazySingleton(() => AuthenticationService());
   // register the viewmodels
   locator.registerFactory(() => LoginModel());
+  locator.registerFactory(() => RegisterModel());
   locator.registerFactory(() => AuthenticationModel());
 }
