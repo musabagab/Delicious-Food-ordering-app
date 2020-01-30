@@ -78,9 +78,9 @@ class _LoginFormState extends State<LoginForm> {
                     onPressed: () async {
                       _formKey.currentState.save();
                       if (_formKey.currentState.validate()) {
-                        print(_emailText);
-                        print(_passwordText);
-                        model.login(email: _emailText, password: _passwordText);
+                        model.login(
+                            email: _emailText.trim(),
+                            password: _passwordText.trim());
                       }
                     },
                   )

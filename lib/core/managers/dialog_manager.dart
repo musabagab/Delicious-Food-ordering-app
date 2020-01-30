@@ -1,3 +1,5 @@
+import 'package:delicious/core/models/alert_request.dart';
+import 'package:delicious/core/models/alert_response.dart';
 import 'package:delicious/core/services/dialog_service.dart';
 import 'package:delicious/locator.dart';
 import 'package:flutter/material.dart';
@@ -27,17 +29,18 @@ class _DialogManagerState extends State<DialogManager> {
     );
   }
 
-  void _showDialog() {
+  void _showDialog(AlertRequest request) {
     Alert(
         context: context,
-        title: "Declicous",
-        desc: "You logged in succesfully",
-        closeFunction: () => _dialogService.dialogComplete(),
+        title: request.title,
+        desc: request.description,
+        closeFunction: () =>
+            _dialogService.dialogComplete(AlertResponse(confirmed: false)),
         buttons: [
           DialogButton(
-            child: Text('Ok'),
+            child: Text(request.buttonTitle),
             onPressed: () {
-              _dialogService.dialogComplete();
+              _dialogService.dialogComplete(AlertResponse(confirmed: true));
               Navigator.of(context).pop();
             },
           )

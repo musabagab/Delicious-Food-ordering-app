@@ -18,9 +18,11 @@ class LoginModel extends BaseModel {
     setState(ViewState.Idle);
     if (results is bool) {
       if (results) {
-        print('dialog called');
-        var dialogResult = await _dialogService.showDialog();
-        print('dialog closed');
+        var dialogResult = await _dialogService.showDialog(
+            title: 'Login Succesful', description: 'You suceesfully logged in');
+        if (dialogResult.confirmed) {
+          print('Dilaog Confirmed');
+        }
         print('Navigate to homeview');
       } else {
         print('Login failed General');
