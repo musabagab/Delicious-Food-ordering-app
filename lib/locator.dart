@@ -1,3 +1,4 @@
+import 'package:delicious/core/services/dialog_service.dart';
 import 'package:delicious/core/services/navigation_service.dart';
 import 'package:delicious/core/viewmodels/auth_model.dart';
 import 'package:delicious/core/viewmodels/register_model.dart';
@@ -12,6 +13,7 @@ void setupLocator() {
   // register services
   locator.registerLazySingleton(() => AuthenticationService());
   locator.registerLazySingleton(() => NavigationService());
+  locator.registerLazySingleton(() => DialogService());
   // register the viewmodels
   locator.registerFactory(() => LoginModel());
   locator.registerFactory(() => RegisterModel());

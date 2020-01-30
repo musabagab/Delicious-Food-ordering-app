@@ -1,3 +1,4 @@
+import 'package:delicious/core/constants/routes_path.dart' as routes;
 import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:delicious/ui/shared/ui_helpers.dart';
 import 'package:delicious/ui/widgets/app_button.dart';
@@ -42,7 +43,7 @@ class LandingView extends StatelessWidget {
                 AppButton(
                     backgroundColor: primaryColor,
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/auth');
+                      Navigator.of(context).pushNamed(routes.AuthPage);
                     },
                     buttonText: 'Login via Email-ID'),
               ],

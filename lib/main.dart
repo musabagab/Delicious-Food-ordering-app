@@ -5,6 +5,7 @@ import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'core/managers/dialog_manager.dart';
 import 'core/models/user.dart';
 import 'core/services/authentication_service.dart';
 
@@ -23,6 +24,14 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Delicious',
         theme: ThemeData(primaryColor: primaryColor),
+        builder: (context, widget) => Navigator(
+          // the dialog manager will be avaialbe to all widgets
+          onGenerateRoute: (settings) => MaterialPageRoute(
+            builder: (context) => DialogManager(
+              child: widget,
+            ),
+          ),
+        ),
         initialRoute: '/',
         onGenerateRoute: Router.generateRoute,
         navigatorKey: locator<NavigationService>().navigatorKey,

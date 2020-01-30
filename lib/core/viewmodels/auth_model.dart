@@ -5,7 +5,7 @@ import '../../locator.dart';
 
 class AuthenticationModel extends BaseModel {
   String selectedForm = 'Login';
-  final NavigationService navigationService = locator<NavigationService>();
+  final NavigationService _navigationService = locator<NavigationService>();
   void changeSelectedForm() {
     if (selectedForm == 'Login') {
       selectedForm = 'Register';
@@ -16,6 +16,6 @@ class AuthenticationModel extends BaseModel {
   }
 
   void goBack() {
-    navigationService.goBack();
+    _navigationService.goBack();
   }
 }
