@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Delicious',
-        theme: ThemeData(primaryColor: primaryColor),
+        theme: ThemeData(primaryColor: primaryColor, accentColor: primaryColor),
         builder: (context, widget) => Navigator(
           // the dialog manager will be avaialbe to all widgets
           onGenerateRoute: (settings) => MaterialPageRoute(

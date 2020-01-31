@@ -2,6 +2,8 @@ import 'package:delicious/core/models/alert_request.dart';
 import 'package:delicious/core/models/alert_response.dart';
 import 'package:delicious/core/services/dialog_service.dart';
 import 'package:delicious/locator.dart';
+import 'package:delicious/ui/shared/app_colors.dart';
+import 'package:delicious/ui/shared/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -38,7 +40,11 @@ class _DialogManagerState extends State<DialogManager> {
             _dialogService.dialogComplete(AlertResponse(confirmed: false)),
         buttons: [
           DialogButton(
-            child: Text(request.buttonTitle),
+            color: primaryColor,
+            child: Text(
+              request.buttonTitle,
+              style: subHeaderStyle,
+            ),
             onPressed: () {
               _dialogService.dialogComplete(AlertResponse(confirmed: true));
               Navigator.of(context).pop();

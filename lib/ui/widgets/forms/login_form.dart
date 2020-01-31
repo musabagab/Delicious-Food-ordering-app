@@ -1,8 +1,10 @@
+import 'package:delicious/core/enums/view_state.dart';
 import 'package:delicious/core/viewmodels/login_model.dart';
 import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:delicious/ui/shared/ui_helpers.dart';
 import 'package:delicious/ui/views/base_view.dart';
 import 'package:delicious/ui/widgets/app_button.dart';
+import 'package:delicious/ui/widgets/buttons/busy_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
@@ -72,10 +74,10 @@ class _LoginFormState extends State<LoginForm> {
                     ),
                   ),
                   UIHelper.verticalSpaceMedium(),
-                  AppButton(
-                    backgroundColor: primaryColor,
-                    buttonText: 'Login',
-                    onPressed: () async {
+                  BusyButton(
+                    title: 'Login',
+                    busy: model.state == ViewState.Busy,
+                    onPressed: () {
                       _formKey.currentState.save();
                       if (_formKey.currentState.validate()) {
                         model.login(
