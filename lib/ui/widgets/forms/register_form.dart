@@ -18,6 +18,8 @@ class _RegisterFormState extends State<RegisterForm> {
   Widget build(BuildContext context) {
     String _emailText;
     String _passwordText;
+    String _usernameText;
+    String _phoneNumberText;
     return BaseView<RegisterModel>(
         builder: (context, model, child) => Form(
               key: _formKey,
