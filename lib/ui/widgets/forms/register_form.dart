@@ -1,8 +1,9 @@
+import 'package:delicious/core/enums/view_state.dart';
 import 'package:delicious/core/viewmodels/register_model.dart';
 import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:delicious/ui/shared/ui_helpers.dart';
 import 'package:delicious/ui/views/base_view.dart';
-import 'package:delicious/ui/widgets/app_button.dart';
+import 'package:delicious/ui/widgets/buttons/busy_button.dart';
 import 'package:flutter/material.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -72,9 +73,9 @@ class _RegisterFormState extends State<RegisterForm> {
                     ),
                   ),
                   UIHelper.verticalSpaceMedium(),
-                  AppButton(
-                    backgroundColor: primaryColor,
-                    buttonText: 'Register',
+                  BusyButton(
+                    busy: model.state == ViewState.Busy,
+                    title: 'Register',
                     onPressed: () async {
                       _formKey.currentState.save();
                       if (_formKey.currentState.validate()) {

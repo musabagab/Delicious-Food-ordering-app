@@ -1,5 +1,6 @@
 import 'package:delicious/core/enums/view_state.dart';
 import 'package:delicious/core/services/authentication_service.dart';
+import 'package:delicious/core/services/navigation_service.dart';
 import 'package:delicious/core/viewmodels/base_model.dart';
 import 'package:delicious/locator.dart';
 import 'package:flutter/foundation.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/foundation.dart';
 class RegisterModel extends BaseModel {
   AuthenticationService _authenticationService =
       locator<AuthenticationService>();
+  NavigationService _navigationService = locator<NavigationService>();
 
   Future signUp({@required String email, @required String password}) async {
     setState(ViewState.Busy);

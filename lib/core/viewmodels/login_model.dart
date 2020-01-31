@@ -23,13 +23,13 @@ class LoginModel extends BaseModel {
       if (results) {
         _navigationService.navigateTo(routes.HomePage);
       } else {
-        _dialogService.showDialog(
+        await _dialogService.showDialog(
             title: 'Login Failed',
             description: 'Check your email and password');
       }
     } else {
       // firebase message
-      _dialogService.showDialog(title: 'Login Failed', description: results);
+      _dialogService.showDialog(title: 'Login Failed', description: 'faield');
       print(results);
     }
   }
