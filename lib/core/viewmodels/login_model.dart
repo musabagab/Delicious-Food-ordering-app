@@ -29,7 +29,7 @@ class LoginModel extends BaseModel {
       }
     } else {
       // firebase message
-      _dialogService.showDialog(title: 'Login Failed', description: 'faield');
+      _dialogService.showDialog(title: 'Login Failed', description: results);
       print(results);
     }
   }

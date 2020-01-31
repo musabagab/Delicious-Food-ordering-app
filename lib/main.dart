@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<User>(
-      initialData: User.initial(),
       builder: (context) => locator<AuthenticationService>().userController,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

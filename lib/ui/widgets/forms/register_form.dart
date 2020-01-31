@@ -32,19 +32,41 @@ class _RegisterFormState extends State<RegisterForm> {
                       children: <Widget>[
                         TextFormField(
                           decoration: InputDecoration(
+                            hintText: 'User name',
                             border: InputBorder.none,
-                            hintText: 'Email ID',
                             icon: Icon(
-                              Icons.email,
+                              Icons.person,
                               color: primaryColor,
                             ),
                           ),
                           onSaved: (text) {
-                            _emailText = text;
+                            _usernameText = text;
                           },
                           validator: (value) {
                             if (value.isEmpty) {
-                              return 'Email should not be empty';
+                              return 'Username should not be empty';
+                            }
+                            return null;
+                          },
+                        ),
+                        Divider(
+                          color: primaryColor,
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Phone number',
+                            icon: Icon(
+                              Icons.phone,
+                              color: primaryColor,
+                            ),
+                          ),
+                          onSaved: (text) {
+                            _phoneNumberText = text;
+                          },
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Phone number should not be empty';
                             }
                             return null;
                           },
@@ -71,6 +93,28 @@ class _RegisterFormState extends State<RegisterForm> {
                             return null;
                           },
                         ),
+                        Divider(
+                          color: primaryColor,
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            hintText: 'Email',
+                            border: InputBorder.none,
+                            icon: Icon(
+                              Icons.lock,
+                              color: primaryColor,
+                            ),
+                          ),
+                          onSaved: (text) {
+                            _emailText = text;
+                          },
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Email should not be empty';
+                            }
+                            return null;
+                          },
+                        )
                       ],
                     ),
                   ),
@@ -83,8 +127,13 @@ class _RegisterFormState extends State<RegisterForm> {
                       if (_formKey.currentState.validate()) {
                         print(_emailText);
                         print(_passwordText);
+                        print(_phoneNumberText);
+                        print(_usernameText);
                         model.signUp(
-                            email: _emailText, password: _passwordText);
+                            email: _emailText,
+                            password: _passwordText,
+                            userName: _usernameText,
+                            phoneNumber: _phoneNumberText);
                       }
                     },
                   )
