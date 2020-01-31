@@ -1,3 +1,4 @@
+import 'package:delicious/core/constants/routes_path.dart';
 import 'package:delicious/core/services/navigation_service.dart';
 import 'package:delicious/locator.dart';
 import 'package:delicious/ui/router.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        initialRoute: '/',
+        initialRoute: StartUpPage,
         onGenerateRoute: Router.generateRoute,
         navigatorKey: locator<NavigationService>().navigatorKey,
       ),
