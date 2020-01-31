@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: AuthPage,
+      initialRoute: StartUpPage,
       onGenerateRoute: Router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
     );

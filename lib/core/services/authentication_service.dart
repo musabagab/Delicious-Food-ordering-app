@@ -10,16 +10,17 @@ import '../../locator.dart';
 class AuthenticationService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   FirestoreService _firestoreService = locator<FirestoreService>();
+  User _currentUser;
+  User get currentUser => _currentUser;
 
   Future loginWithEmail(
       {@required String email, @required String password}) async {
     try {
-      var user = await _firebaseAuth.signInWithEmailAndPassword(
+      var authResults = await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
-      if (user == null) {
-        print('User is null');
-      }
-      return user != null;
+      // popular userObject from firestore
+      await _popularCurrentUser(authResults.user);
+      return authResults.user != null;
     } catch (e) {
       return e.message;
     }
@@ -35,11 +36,12 @@ class AuthenticationService {
           email: email, password: password);
 
       // create user collection in firestore
-      await _firestoreService.createUser(User(
+      _currentUser = User(
           id: authResult.user.uid,
           email: email,
           phoneNumber: phoneNumber,
-          userName: userName));
+          userName: userName);
+      await _firestoreService.createUser(_currentUser);
       // return results
       return authResult.user != null;
     } catch (e) {
@@ -50,6 +52,13 @@ class AuthenticationService {
 
   Future<bool> isUserLoggedIn() async {
     var user = await _firebaseAuth.currentUser();
+    await _popularCurrentUser(user);
     return user != null;
+  }
+
+  Future _popularCurrentUser(FirebaseUser user) async {
+    if (user != null) {
+      _currentUser = await _firestoreService.getUser(user.uid);
+    }
   }
 }

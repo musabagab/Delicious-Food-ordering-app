@@ -2,7 +2,6 @@ import 'package:delicious/core/constants/routes_path.dart';
 import 'package:delicious/core/enums/view_state.dart';
 import 'package:delicious/core/services/authentication_service.dart';
 import 'package:delicious/core/services/dialog_service.dart';
-import 'package:delicious/core/services/firestore_service.dart';
 import 'package:delicious/core/services/navigation_service.dart';
 import 'package:delicious/core/viewmodels/base_model.dart';
 import 'package:delicious/locator.dart';

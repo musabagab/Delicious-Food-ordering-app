@@ -45,12 +45,7 @@ class LandingView extends StatelessWidget {
                 AppButton(
                     backgroundColor: primaryColor,
                     onPressed: () {
-                      FirestoreService().createUser(User(
-                          email: 'musab',
-                          phoneNumber: '123412423',
-                          userName: 'ahmed',
-                          id: '3123123123'));
-                      //Navigator.of(context).pushNamed(routes.AuthPage);
+                      Navigator.of(context).pushNamed(routes.AuthPage);
                     },
                     buttonText: 'Login via Email-ID'),
               ],

@@ -123,7 +123,9 @@ class _RegisterFormState extends State<RegisterForm> {
                     busy: model.state == ViewState.Busy,
                     title: 'Register',
                     onPressed: () async {
+                      // save the results
                       _formKey.currentState.save();
+                      // check if validated
                       if (_formKey.currentState.validate()) {
                         model.signUp(
                             email: _emailText,
