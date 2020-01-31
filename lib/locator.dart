@@ -1,4 +1,5 @@
 import 'package:delicious/core/services/dialog_service.dart';
+import 'package:delicious/core/services/firestore_service.dart';
 import 'package:delicious/core/services/navigation_service.dart';
 import 'package:delicious/core/viewmodels/auth_model.dart';
 import 'package:delicious/core/viewmodels/register_model.dart';
@@ -13,6 +14,7 @@ GetIt locator = GetIt.instance;
 void setupLocator() {
   // register services
   locator.registerLazySingleton(() => AuthenticationService());
+  locator.registerLazySingleton(() => FirestoreService());
   locator.registerLazySingleton(() => NavigationService());
   locator.registerLazySingleton(() => DialogService());
   // register the viewmodels

@@ -1,4 +1,6 @@
 import 'package:delicious/core/constants/routes_path.dart' as routes;
+import 'package:delicious/core/models/user.dart';
+import 'package:delicious/core/services/firestore_service.dart';
 import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:delicious/ui/shared/ui_helpers.dart';
 import 'package:delicious/ui/widgets/app_button.dart';
@@ -43,7 +45,12 @@ class LandingView extends StatelessWidget {
                 AppButton(
                     backgroundColor: primaryColor,
                     onPressed: () {
-                      Navigator.of(context).pushNamed(routes.AuthPage);
+                      FirestoreService().createUser(User(
+                          email: 'musab',
+                          phoneNumber: '123412423',
+                          userName: 'ahmed',
+                          id: '3123123123'));
+                      //Navigator.of(context).pushNamed(routes.AuthPage);
                     },
                     buttonText: 'Login via Email-ID'),
               ],

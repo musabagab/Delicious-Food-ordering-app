@@ -29,7 +29,7 @@ dependencies:
   flutter_custom_clippers: ^1.1.0
   firebase_auth: ^0.15.0
   rflutter_alert: ^1.0.3
-  cloud_firestore: ^0.12.11 
+  cloud_firestore: ^0.12.10+5 
   
 dev_dependencies:
   flutter_test:

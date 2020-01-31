@@ -6,7 +6,8 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('HomeView'),
+      body:
+          Center(child: GestureDetector(onTap: () {}, child: Text('HomeView'))),
     );
   }
 }

@@ -101,7 +101,7 @@ class _RegisterFormState extends State<RegisterForm> {
                             hintText: 'Email',
                             border: InputBorder.none,
                             icon: Icon(
-                              Icons.lock,
+                              Icons.email,
                               color: primaryColor,
                             ),
                           ),
@@ -125,10 +125,6 @@ class _RegisterFormState extends State<RegisterForm> {
                     onPressed: () async {
                       _formKey.currentState.save();
                       if (_formKey.currentState.validate()) {
-                        print(_emailText);
-                        print(_passwordText);
-                        print(_phoneNumberText);
-                        print(_usernameText);
                         model.signUp(
                             email: _emailText,
                             password: _passwordText,

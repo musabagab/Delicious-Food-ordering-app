@@ -1,13 +1,15 @@
 import 'dart:async';
 
+import 'package:delicious/core/models/user.dart';
+import 'package:delicious/core/services/firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
-import '../models/user.dart';
+import '../../locator.dart';
 
 class AuthenticationService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  StreamController<User> userController = StreamController<User>();
+  FirestoreService _firestoreService = locator<FirestoreService>();
 
   Future loginWithEmail(
       {@required String email, @required String password}) async {
@@ -31,8 +33,17 @@ class AuthenticationService {
     try {
       var authResult = await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
+
+      // create user collection in firestore
+      await _firestoreService.createUser(User(
+          id: authResult.user.uid,
+          email: email,
+          phoneNumber: phoneNumber,
+          userName: userName));
+      // return results
       return authResult.user != null;
     } catch (e) {
+      print(e);
       return e.message;
     }
   }
