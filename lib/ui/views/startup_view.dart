@@ -9,6 +9,7 @@ class StartupView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView<StartupModel>(
+      onModelReady: (model) => model.handleStartupLogin(),
       builder: (context, model, child) => Scaffold(
         backgroundColor: primaryColor,
         body: Center(
