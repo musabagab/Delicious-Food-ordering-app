@@ -4,6 +4,7 @@ import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:delicious/ui/shared/ui_helpers.dart';
 import 'package:delicious/ui/views/base_view.dart';
 import 'package:delicious/ui/widgets/buttons/busy_button.dart';
+import 'package:delicious/ui/widgets/forms/apptextform.dart';
 import 'package:flutter/material.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -30,59 +31,39 @@ class _RegisterFormState extends State<RegisterForm> {
                     color: Colors.white,
                     child: Column(
                       children: <Widget>[
-                        TextFormField(
-                          controller: _usernameController,
-                          decoration: buildInputDecoration(
-                              hintText: 'Username', iconData: Icons.person),
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Username should not be empty';
-                            }
-                            return null;
-                          },
+                        AppTextForm(
+                          textController: _usernameController,
+                          hintText: 'Email',
+                          iconData: Icons.person,
+                          errorMessage: 'Email should not be empty',
                         ),
                         Divider(
                           color: primaryColor,
                         ),
-                        TextFormField(
-                          decoration: buildInputDecoration(
-                              hintText: 'Phone number', iconData: Icons.phone),
-                          controller: _phoneNumberController,
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Phone number should not be empty';
-                            }
-                            return null;
-                          },
+                        AppTextForm(
+                          textController: _phoneNumberController,
+                          hintText: 'Phone Number',
+                          iconData: Icons.call,
+                          errorMessage: 'Phone Number should not be empty',
                         ),
                         Divider(
                           color: primaryColor,
                         ),
-                        TextFormField(
-                          decoration: buildInputDecoration(
-                              hintText: 'Password', iconData: Icons.lock),
-                          controller: _passwordController,
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Password should not be empty';
-                            }
-                            return null;
-                          },
+                        AppTextForm(
+                          textController: _passwordController,
+                          hintText: 'Password',
+                          iconData: Icons.lock,
+                          errorMessage: 'Password should not be empty',
                         ),
                         Divider(
                           color: primaryColor,
                         ),
-                        TextFormField(
-                          decoration: buildInputDecoration(
-                              hintText: 'Email', iconData: Icons.email),
-                          controller: _emailController,
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Email should not be empty';
-                            }
-                            return null;
-                          },
-                        )
+                        AppTextForm(
+                          textController: _emailController,
+                          hintText: 'Email',
+                          iconData: Icons.email,
+                          errorMessage: 'Email should not be empty',
+                        ),
                       ],
                     ),
                   ),
@@ -106,16 +87,5 @@ class _RegisterFormState extends State<RegisterForm> {
                 ],
               ),
             ));
-  }
-
-  InputDecoration buildInputDecoration({String hintText, IconData iconData}) {
-    return InputDecoration(
-      hintText: hintText,
-      border: InputBorder.none,
-      icon: Icon(
-        iconData,
-        color: primaryColor,
-      ),
-    );
   }
 }
