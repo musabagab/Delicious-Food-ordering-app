@@ -19,73 +19,77 @@ class _LoginFormState extends State<LoginForm> {
     String _emailText;
     String _passwordText;
     return BaseView<LoginModel>(
-        builder: (context, model, child) => Form(
-              key: _formKey,
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.all(12),
-                    color: Colors.white,
-                    child: Column(
-                      children: <Widget>[
-                        TextFormField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Email ID',
-                            icon: Icon(
-                              Icons.email,
-                              color: primaryColor,
+        builder: (context, model, child) => SingleChildScrollView(
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.all(12),
+                      color: Colors.white,
+                      height: 120,
+                      child: ListView(
+                        shrinkWrap: true,
+                        children: <Widget>[
+                          TextFormField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Email ID',
+                              icon: Icon(
+                                Icons.email,
+                                color: primaryColor,
+                              ),
                             ),
+                            onSaved: (text) {
+                              _emailText = text;
+                            },
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Email should not be empty';
+                              }
+                              return null;
+                            },
                           ),
-                          onSaved: (text) {
-                            _emailText = text;
-                          },
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Email should not be empty';
-                            }
-                            return null;
-                          },
-                        ),
-                        Divider(
-                          color: primaryColor,
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            hintText: 'Password',
-                            border: InputBorder.none,
-                            icon: Icon(
-                              Icons.lock,
-                              color: primaryColor,
+                          Divider(
+                            color: primaryColor,
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              hintText: 'Password',
+                              border: InputBorder.none,
+                              icon: Icon(
+                                Icons.lock,
+                                color: primaryColor,
+                              ),
                             ),
+                            onSaved: (text) {
+                              _passwordText = text;
+                            },
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Password should not be empty';
+                              }
+                              return null;
+                            },
                           ),
-                          onSaved: (text) {
-                            _passwordText = text;
-                          },
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Password should not be empty';
-                            }
-                            return null;
-                          },
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  UIHelper.verticalSpaceMedium(),
-                  BusyButton(
-                    title: 'Login',
-                    busy: model.state == ViewState.Busy,
-                    onPressed: () {
-                      _formKey.currentState.save();
-                      if (_formKey.currentState.validate()) {
-                        model.login(
-                            email: _emailText.trim(),
-                            password: _passwordText.trim());
-                      }
-                    },
-                  )
-                ],
+                    UIHelper.verticalSpaceMedium(),
+                    BusyButton(
+                      title: 'Login',
+                      busy: model.state == ViewState.Busy,
+                      onPressed: () {
+                        _formKey.currentState.save();
+                        if (_formKey.currentState.validate()) {
+                          model.login(
+                              email: _emailText.trim(),
+                              password: _passwordText.trim());
+                        }
+                      },
+                    )
+                  ],
+                ),
               ),
             ));
   }

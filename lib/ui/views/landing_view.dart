@@ -1,6 +1,4 @@
 import 'package:delicious/core/constants/routes_path.dart' as routes;
-import 'package:delicious/core/models/user.dart';
-import 'package:delicious/core/services/firestore_service.dart';
 import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:delicious/ui/shared/ui_helpers.dart';
 import 'package:delicious/ui/widgets/app_button.dart';
