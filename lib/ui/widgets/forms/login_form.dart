@@ -4,6 +4,7 @@ import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:delicious/ui/shared/ui_helpers.dart';
 import 'package:delicious/ui/views/base_view.dart';
 import 'package:delicious/ui/widgets/buttons/busy_button.dart';
+import 'package:delicious/ui/widgets/forms/apptextform.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
@@ -18,6 +19,8 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     String _emailText;
     String _passwordText;
+    TextEditingController _emailController = TextEditingController();
+    TextEditingController _passwordController = TextEditingController();
     return BaseView<LoginModel>(
         builder: (context, model, child) => Form(
               key: _formKey,
@@ -28,46 +31,20 @@ class _LoginFormState extends State<LoginForm> {
                     color: Colors.white,
                     child: Column(
                       children: <Widget>[
-                        TextFormField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Email ID',
-                            icon: Icon(
-                              Icons.email,
-                              color: primaryColor,
-                            ),
-                          ),
-                          onSaved: (text) {
-                            _emailText = text;
-                          },
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Email should not be empty';
-                            }
-                            return null;
-                          },
+                        AppTextForm(
+                          textController: _emailController,
+                          hintText: 'Email',
+                          iconData: Icons.email,
+                          errorMessage: 'Email should not be empty',
                         ),
                         Divider(
                           color: primaryColor,
                         ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            hintText: 'Password',
-                            border: InputBorder.none,
-                            icon: Icon(
-                              Icons.lock,
-                              color: primaryColor,
-                            ),
-                          ),
-                          onSaved: (text) {
-                            _passwordText = text;
-                          },
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'Password should not be empty';
-                            }
-                            return null;
-                          },
+                        AppTextForm(
+                          textController: _passwordController,
+                          hintText: 'Password',
+                          iconData: Icons.lock,
+                          errorMessage: 'Password should not be empty',
                         ),
                       ],
                     ),
@@ -77,11 +54,10 @@ class _LoginFormState extends State<LoginForm> {
                     title: 'Login',
                     busy: model.state == ViewState.Busy,
                     onPressed: () {
-                      _formKey.currentState.save();
                       if (_formKey.currentState.validate()) {
                         model.login(
-                            email: _emailText.trim(),
-                            password: _passwordText.trim());
+                            email: _emailController.text.trim(),
+                            password: _passwordController.text..trim());
                       }
                     },
                   )

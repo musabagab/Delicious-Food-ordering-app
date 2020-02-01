@@ -17,10 +17,10 @@ class _RegisterFormState extends State<RegisterForm> {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _emailController,
-        _phoneNumberController,
-        _passwordController,
-        _usernameController = TextEditingController();
+    TextEditingController _emailController = TextEditingController();
+    TextEditingController _phoneNumberController = TextEditingController();
+    TextEditingController _passwordController = TextEditingController();
+    TextEditingController _usernameController = TextEditingController();
     return BaseView<RegisterModel>(
         builder: (context, model, child) => Form(
               key: _formKey,
@@ -33,9 +33,9 @@ class _RegisterFormState extends State<RegisterForm> {
                       children: <Widget>[
                         AppTextForm(
                           textController: _usernameController,
-                          hintText: 'Email',
+                          hintText: 'Username',
                           iconData: Icons.person,
-                          errorMessage: 'Email should not be empty',
+                          errorMessage: 'Username should not be empty',
                         ),
                         Divider(
                           color: primaryColor,
@@ -72,8 +72,6 @@ class _RegisterFormState extends State<RegisterForm> {
                     busy: model.state == ViewState.Busy,
                     title: 'Register',
                     onPressed: () async {
-                      // save the results
-                      _formKey.currentState.save();
                       // check if validated
                       if (_formKey.currentState.validate()) {
                         model.signUp(
