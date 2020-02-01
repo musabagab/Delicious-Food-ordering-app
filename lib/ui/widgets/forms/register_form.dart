@@ -16,10 +16,10 @@ class _RegisterFormState extends State<RegisterForm> {
 
   @override
   Widget build(BuildContext context) {
-    String _emailText;
-    String _passwordText;
-    String _usernameText;
-    String _phoneNumberText;
+    TextEditingController _emailController,
+        _phoneNumberController,
+        _passwordController,
+        _usernameController = TextEditingController();
     return BaseView<RegisterModel>(
         builder: (context, model, child) => Form(
               key: _formKey,
@@ -31,17 +31,9 @@ class _RegisterFormState extends State<RegisterForm> {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          decoration: InputDecoration(
-                            hintText: 'User name',
-                            border: InputBorder.none,
-                            icon: Icon(
-                              Icons.person,
-                              color: primaryColor,
-                            ),
-                          ),
-                          onSaved: (text) {
-                            _usernameText = text;
-                          },
+                          controller: _usernameController,
+                          decoration: buildInputDecoration(
+                              hintText: 'Username', iconData: Icons.person),
                           validator: (value) {
                             if (value.isEmpty) {
                               return 'Username should not be empty';
@@ -53,17 +45,9 @@ class _RegisterFormState extends State<RegisterForm> {
                           color: primaryColor,
                         ),
                         TextFormField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Phone number',
-                            icon: Icon(
-                              Icons.phone,
-                              color: primaryColor,
-                            ),
-                          ),
-                          onSaved: (text) {
-                            _phoneNumberText = text;
-                          },
+                          decoration: buildInputDecoration(
+                              hintText: 'Phone number', iconData: Icons.phone),
+                          controller: _phoneNumberController,
                           validator: (value) {
                             if (value.isEmpty) {
                               return 'Phone number should not be empty';
@@ -75,17 +59,9 @@ class _RegisterFormState extends State<RegisterForm> {
                           color: primaryColor,
                         ),
                         TextFormField(
-                          decoration: InputDecoration(
-                            hintText: 'Password',
-                            border: InputBorder.none,
-                            icon: Icon(
-                              Icons.lock,
-                              color: primaryColor,
-                            ),
-                          ),
-                          onSaved: (text) {
-                            _passwordText = text;
-                          },
+                          decoration: buildInputDecoration(
+                              hintText: 'Password', iconData: Icons.lock),
+                          controller: _passwordController,
                           validator: (value) {
                             if (value.isEmpty) {
                               return 'Password should not be empty';
@@ -97,17 +73,9 @@ class _RegisterFormState extends State<RegisterForm> {
                           color: primaryColor,
                         ),
                         TextFormField(
-                          decoration: InputDecoration(
-                            hintText: 'Email',
-                            border: InputBorder.none,
-                            icon: Icon(
-                              Icons.email,
-                              color: primaryColor,
-                            ),
-                          ),
-                          onSaved: (text) {
-                            _emailText = text;
-                          },
+                          decoration: buildInputDecoration(
+                              hintText: 'Email', iconData: Icons.email),
+                          controller: _emailController,
                           validator: (value) {
                             if (value.isEmpty) {
                               return 'Email should not be empty';
@@ -128,15 +96,26 @@ class _RegisterFormState extends State<RegisterForm> {
                       // check if validated
                       if (_formKey.currentState.validate()) {
                         model.signUp(
-                            email: _emailText,
-                            password: _passwordText,
-                            userName: _usernameText,
-                            phoneNumber: _phoneNumberText);
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                            userName: _usernameController.text,
+                            phoneNumber: _phoneNumberController.text);
                       }
                     },
                   )
                 ],
               ),
             ));
+  }
+
+  InputDecoration buildInputDecoration({String hintText, IconData iconData}) {
+    return InputDecoration(
+      hintText: hintText,
+      border: InputBorder.none,
+      icon: Icon(
+        iconData,
+        color: primaryColor,
+      ),
+    );
   }
 }
