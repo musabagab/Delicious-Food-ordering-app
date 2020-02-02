@@ -30,81 +30,83 @@ class _RegisterFormState extends State<RegisterForm> {
     return BaseView<RegisterModel>(
         builder: (context, model, child) => Form(
               key: _formKey,
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.all(12),
-                    color: Colors.white,
-                    child: Column(
-                      children: <Widget>[
-                        EnsureVisibleWhenFocused(
-                          focusNode: _focusNodeUsername,
-                          child: AppTextForm(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.all(12),
+                      color: Colors.white,
+                      child: Column(
+                        children: <Widget>[
+                          EnsureVisibleWhenFocused(
                             focusNode: _focusNodeUsername,
-                            textController: _usernameController,
-                            hintText: 'Username',
-                            iconData: Icons.person,
-                            errorMessage: 'Username should not be empty',
+                            child: AppTextForm(
+                              focusNode: _focusNodeUsername,
+                              textController: _usernameController,
+                              hintText: 'Username',
+                              iconData: Icons.person,
+                              errorMessage: 'Username should not be empty',
+                            ),
                           ),
-                        ),
-                        Divider(
-                          color: primaryColor,
-                        ),
-                        EnsureVisibleWhenFocused(
-                          focusNode: _focusNodePhoneNumber,
-                          child: AppTextForm(
-                            textController: _phoneNumberController,
+                          Divider(
+                            color: primaryColor,
+                          ),
+                          EnsureVisibleWhenFocused(
                             focusNode: _focusNodePhoneNumber,
-                            hintText: 'Phone Number',
-                            iconData: Icons.call,
-                            errorMessage: 'Phone Number should not be empty',
+                            child: AppTextForm(
+                              textController: _phoneNumberController,
+                              focusNode: _focusNodePhoneNumber,
+                              hintText: 'Phone Number',
+                              iconData: Icons.call,
+                              errorMessage: 'Phone Number should not be empty',
+                            ),
                           ),
-                        ),
-                        Divider(
-                          color: primaryColor,
-                        ),
-                        EnsureVisibleWhenFocused(
-                          focusNode: _focusNodePassword,
-                          child: AppTextForm(
+                          Divider(
+                            color: primaryColor,
+                          ),
+                          EnsureVisibleWhenFocused(
                             focusNode: _focusNodePassword,
-                            textController: _passwordController,
-                            hintText: 'Password',
-                            iconData: Icons.lock,
-                            errorMessage: 'Password should not be empty',
+                            child: AppTextForm(
+                              focusNode: _focusNodePassword,
+                              textController: _passwordController,
+                              hintText: 'Password',
+                              iconData: Icons.lock,
+                              errorMessage: 'Password should not be empty',
+                            ),
                           ),
-                        ),
-                        Divider(
-                          color: primaryColor,
-                        ),
-                        EnsureVisibleWhenFocused(
-                          focusNode: _focusNodeEmail,
-                          child: AppTextForm(
-                            textController: _emailController,
+                          Divider(
+                            color: primaryColor,
+                          ),
+                          EnsureVisibleWhenFocused(
                             focusNode: _focusNodeEmail,
-                            hintText: 'Email',
-                            iconData: Icons.email,
-                            errorMessage: 'Email should not be empty',
+                            child: AppTextForm(
+                              textController: _emailController,
+                              focusNode: _focusNodeEmail,
+                              hintText: 'Email',
+                              iconData: Icons.email,
+                              errorMessage: 'Email should not be empty',
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  UIHelper.verticalSpaceMedium(),
-                  BusyButton(
-                    busy: model.state == ViewState.Busy,
-                    title: 'Register',
-                    onPressed: () async {
-                      // check if validated
-                      if (_formKey.currentState.validate()) {
-                        model.signUp(
-                            email: _emailController.text,
-                            password: _passwordController.text,
-                            userName: _usernameController.text,
-                            phoneNumber: _phoneNumberController.text);
-                      }
-                    },
-                  )
-                ],
+                    UIHelper.verticalSpaceMedium(),
+                    BusyButton(
+                      busy: model.state == ViewState.Busy,
+                      title: 'Register',
+                      onPressed: () async {
+                        // check if validated
+                        if (_formKey.currentState.validate()) {
+                          model.signUp(
+                              email: _emailController.text,
+                              password: _passwordController.text,
+                              userName: _usernameController.text,
+                              phoneNumber: _phoneNumberController.text);
+                        }
+                      },
+                    )
+                  ],
+                ),
               ),
             ));
   }

@@ -17,8 +17,6 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    String _emailText;
-    String _passwordText;
     TextEditingController _emailController = TextEditingController();
     TextEditingController _passwordController = TextEditingController();
     return BaseView<LoginModel>(
