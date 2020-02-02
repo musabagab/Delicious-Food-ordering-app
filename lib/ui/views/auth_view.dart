@@ -11,19 +11,20 @@ class AuthView extends StatefulWidget {
 class _AuthViewState extends State<AuthView> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-          body: Stack(
-        children: <Widget>[
-          BackgroundWithLogo(),
-          Positioned(
-            left: 80,
-            right: 80,
-            top: 220,
-            child: AuthenticationForm(),
-          )
-        ],
-      )),
+    return Scaffold(
+      body: SafeArea(
+        child: Stack(
+          children: <Widget>[
+            BackgroundWithLogo(),
+            Positioned(
+              left: 80,
+              right: 80,
+              top: 220,
+              child: AuthenticationForm(),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
