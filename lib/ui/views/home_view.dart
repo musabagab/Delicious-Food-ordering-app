@@ -1,3 +1,5 @@
+import 'package:delicious/core/viewmodels/home_model.dart';
+import 'package:delicious/ui/views/base_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -5,9 +7,11 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body:
-          Center(child: GestureDetector(onTap: () {}, child: Text('HomeView'))),
-    );
+    return BaseView<HomeModel>(
+        builder: (context, model, child) => Scaffold(
+              body: SafeArea(
+                child: Text('HomeView'),
+              ),
+            ));
   }
 }
