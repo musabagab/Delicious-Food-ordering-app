@@ -2,6 +2,7 @@ import 'package:delicious/core/services/dialog_service.dart';
 import 'package:delicious/core/services/firestore_service.dart';
 import 'package:delicious/core/services/navigation_service.dart';
 import 'package:delicious/core/viewmodels/auth_model.dart';
+import 'package:delicious/core/viewmodels/home_model.dart';
 import 'package:delicious/core/viewmodels/register_model.dart';
 import 'package:delicious/core/viewmodels/startup_model.dart';
 import 'package:get_it/get_it.dart';
@@ -21,5 +22,6 @@ void setupLocator() {
   locator.registerFactory(() => StartupModel());
   locator.registerFactory(() => LoginModel());
   locator.registerFactory(() => RegisterModel());
+  locator.registerFactory(() => HomeModel());
   locator.registerFactory(() => AuthenticationModel());
 }
