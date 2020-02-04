@@ -8,10 +8,12 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView<HomeModel>(
-        builder: (context, model, child) => Scaffold(
-              body: SafeArea(
-                child: Text('HomeView'),
-              ),
-            ));
+      builder: (context, model, child) => Scaffold(
+        appBar: AppBar(),
+        body: SafeArea(
+          child: Text('HomeView'),
+        ),
+      ),
+    );
   }
 }
