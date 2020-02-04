@@ -10,6 +10,16 @@ class HomeView extends StatelessWidget {
     return BaseView<HomeModel>(
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(),
+        drawer: Drawer(
+          child: ListView(
+            children: <Widget>[
+              Text('Hello'),
+              Text('Hello'),
+              Text('Hello'),
+              Text('Hello'),
+            ],
+          ),
+        ),
         body: SafeArea(
           child: Text('HomeView'),
         ),
