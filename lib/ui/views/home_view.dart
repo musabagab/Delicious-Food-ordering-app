@@ -9,7 +9,9 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<HomeModel>(
       builder: (context, model, child) => Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: Center(child: Text('Menu')),
+        ),
         drawer: Drawer(
           child: ListView(
             children: <Widget>[
