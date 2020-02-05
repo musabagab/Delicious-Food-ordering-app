@@ -15,10 +15,10 @@ class HomeView extends StatelessWidget {
         drawer: Drawer(
           child: ListView(
             children: <Widget>[
-              Text('Hello'),
-              Text('Hello'),
-              Text('Hello'),
-              Text('Hello'),
+              Text('Meal1'),
+              Text('Meal2'),
+              Text('Meal 3'),
+              Text('Meal4'),
             ],
           ),
         ),
