@@ -15,10 +15,36 @@ class HomeView extends StatelessWidget {
         drawer: Drawer(
           child: ListView(
             children: <Widget>[
-              Text('Meal1'),
-              Text('Meal2'),
-              Text('Meal 3'),
-              Text('Meal4'),
+              Card(
+                child: ListTile(
+                  leading: Icon(Icons.restaurant_menu),
+                  title: Text('Menu'),
+                ),
+              ),
+              Card(
+                child: ListTile(
+                  leading: Icon(Icons.view_list),
+                  title: Text('My Orders'),
+                ),
+              ),
+              Card(
+                child: ListTile(
+                  leading: Icon(Icons.local_offer),
+                  title: Text('Offers'),
+                ),
+              ),
+              Card(
+                child: ListTile(
+                  leading: Icon(Icons.call_end),
+                  title: Text('Support'),
+                ),
+              ),
+              Card(
+                child: ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text('Settings'),
+                ),
+              ),
             ],
           ),
         ),
