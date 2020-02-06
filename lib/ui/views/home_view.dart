@@ -15,6 +15,15 @@ class HomeView extends StatelessWidget {
         drawer: Drawer(
           child: ListView(
             children: <Widget>[
+              new Container(
+                  width: 150.0,
+                  height: 150.0,
+                  decoration: new BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: new DecorationImage(
+                          fit: BoxFit.contain,
+                          image: new NetworkImage(
+                              "https://i.imgur.com/BoN9kdC.png")))),
               Card(
                 child: ListTile(
                   leading: Icon(Icons.restaurant_menu),
