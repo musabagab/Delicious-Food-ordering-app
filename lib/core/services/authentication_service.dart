@@ -36,6 +36,7 @@ class AuthenticationService {
           email: email, password: password);
 
       // create user collection in firestore
+      authResult.user.photoUrl;
       _currentUser = User(
           id: authResult.user.uid,
           email: email,
