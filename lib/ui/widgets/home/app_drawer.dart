@@ -1,3 +1,4 @@
+import 'package:delicious/ui/widgets/home/user_image.dart';
 import 'package:flutter/material.dart';
 
 class AppDrawer extends StatelessWidget {
