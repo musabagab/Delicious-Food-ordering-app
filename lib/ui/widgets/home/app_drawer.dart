@@ -21,7 +21,7 @@ class AppDrawer extends StatelessWidget {
           Card(
             child: ListTile(
               leading: Icon(Icons.view_list),
-              title: Text('My Orders'),
+              title: Text('Orders'),
             ),
           ),
           Card(
