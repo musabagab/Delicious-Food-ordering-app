@@ -15,7 +15,14 @@ class HomeView extends StatelessWidget {
         ),
         drawer: AppDrawer(),
         body: SafeArea(
-          child: Text('HomeView'),
+          child: ListView(
+            children: <Widget>[
+              Text('Data 1,'),
+              Text('Data 2,'),
+              Text('Data 3,'),
+              Text('Data 4,'),
+            ],
+          ),
         ),
       ),
     );
