@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Post {
+class Meal {
   final String title;
   final String imageUrl;
-  final String userId;
+  final String price;
 
-  Post({
-    @required this.userId,
+  Meal({
+    @required this.price,
     @required this.title,
     this.imageUrl,
   });
@@ -14,7 +14,7 @@ class Post {
     return {
       title: 'title',
       imageUrl: 'imageUrl',
-      userId: 'userId',
+      price: "price",
     };
   }
 }

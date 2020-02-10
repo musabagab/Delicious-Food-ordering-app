@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:delicious/core/models/post.dart';
+import 'package:delicious/core/models/meal.dart';
 import 'package:delicious/core/models/user.dart';
 import 'package:flutter/services.dart';
 
 class FirestoreService {
   final CollectionReference _usersCollectionReference =
       Firestore.instance.collection("users");
-  final CollectionReference _postsCollectionReference =
-      Firestore.instance.collection("posts");
+  final CollectionReference _mealsCollectionReference =
+      Firestore.instance.collection("meals");
   Future createUser(User user) async {
     try {
       await _usersCollectionReference.document(user.id).setData(user.toJson());
@@ -28,9 +28,9 @@ class FirestoreService {
     }
   }
 
-  Future addPost(Post post) async {
+  Future addMeal(Meal meal) async {
     try {
-      await _postsCollectionReference.add(post.toMap());
+      await _mealsCollectionReference.add(meal.toMap());
     } catch (e) {
       if (e is PlatformException) {
         return e.message;
