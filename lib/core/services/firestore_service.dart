@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:delicious/core/models/post.dart';
 import 'package:delicious/core/models/user.dart';
+import 'package:flutter/services.dart';
 
 class FirestoreService {
   final CollectionReference _usersCollectionReference =
@@ -19,7 +21,12 @@ class FirestoreService {
       var user = await _usersCollectionReference.document(uid).get();
       return User.fromData(user.data);
     } catch (e) {
-      return e.message;
+      if (e is PlatformException) {
+        return e.message;
+      }
+      return e.toString();
     }
   }
+
+  Future addPost(Post post) {}
 }
