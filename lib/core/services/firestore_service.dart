@@ -28,5 +28,14 @@ class FirestoreService {
     }
   }
 
-  Future addPost(Post post) {}
+  Future addPost(Post post) async {
+    try {
+      await _postsCollectionReference.add(post.toMap());
+    } catch (e) {
+      if (e is PlatformException) {
+        return e.message;
+      }
+      return e.toString();
+    }
+  }
 }
