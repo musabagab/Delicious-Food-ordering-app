@@ -4,7 +4,8 @@ import 'package:delicious/core/models/user.dart';
 class FirestoreService {
   final CollectionReference _usersCollectionReference =
       Firestore.instance.collection("users");
-
+  final CollectionReference _postsCollectionReference =
+      Firestore.instance.collection("posts");
   Future createUser(User user) async {
     try {
       await _usersCollectionReference.document(user.id).setData(user.toJson());
