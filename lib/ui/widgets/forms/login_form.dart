@@ -22,12 +22,12 @@ class _LoginFormState extends State<LoginForm> {
     return BaseView<LoginModel>(
         builder: (context, model, child) => Form(
               key: _formKey,
-              child: Column(
+              child: ListView(
+                shrinkWrap: true,
                 children: <Widget>[
                   Container(
                     padding: EdgeInsets.all(12),
-                    color: Colors.white,
-                    child: Column(
+                    child: Wrap(
                       children: <Widget>[
                         AppTextForm(
                           textController: _emailController,
