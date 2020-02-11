@@ -27,6 +27,7 @@ class _LoginFormState extends State<LoginForm> {
                 children: <Widget>[
                   Container(
                     padding: EdgeInsets.all(12),
+                    color: Colors.white,
                     child: Wrap(
                       children: <Widget>[
                         AppTextForm(
