@@ -1,4 +1,6 @@
 import 'package:delicious/core/viewmodels/home_model.dart';
+import 'package:delicious/ui/shared/text_styles.dart';
+import 'package:delicious/ui/shared/ui_helpers.dart';
 import 'package:delicious/ui/views/base_view.dart';
 import 'package:delicious/ui/widgets/home/app_drawer.dart';
 import 'package:flutter/material.dart';
@@ -17,10 +19,24 @@ class HomeView extends StatelessWidget {
         body: SafeArea(
           child: ListView(
             children: <Widget>[
-              Text('Data 1,'),
-              Text('Data 2,'),
-              Text('Data 3,'),
-              Text('Data 4,'),
+              Card(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        CircleAvatar(
+                          radius: 30,
+                        ),
+                        UIHelper.horizontalSpaceSmall(),
+                        Text(
+                          'Snacks',
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
