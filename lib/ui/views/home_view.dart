@@ -1,4 +1,5 @@
 import 'package:delicious/core/viewmodels/home_model.dart';
+import 'package:delicious/ui/shared/app_colors.dart';
 import 'package:delicious/ui/shared/text_styles.dart';
 import 'package:delicious/ui/shared/ui_helpers.dart';
 import 'package:delicious/ui/views/base_view.dart';
@@ -33,6 +34,11 @@ class HomeView extends StatelessWidget {
                           'Snacks',
                         ),
                       ],
+                    ),
+                    Icon(
+                      Icons.keyboard_arrow_right,
+                      color: primaryColor,
+                      size: 50,
                     ),
                   ],
                 ),
