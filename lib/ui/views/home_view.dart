@@ -21,26 +21,32 @@ class HomeView extends StatelessWidget {
           child: ListView(
             children: <Widget>[
               Card(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Row(
+                child: InkWell(
+                  onTap: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        CircleAvatar(
-                          radius: 30,
+                        Row(
+                          children: <Widget>[
+                            CircleAvatar(
+                              radius: 30,
+                            ),
+                            UIHelper.horizontalSpaceSmall(),
+                            Text(
+                              'Snacks',
+                            ),
+                          ],
                         ),
-                        UIHelper.horizontalSpaceSmall(),
-                        Text(
-                          'Snacks',
+                        Icon(
+                          Icons.keyboard_arrow_right,
+                          color: primaryColor,
+                          size: 50,
                         ),
                       ],
                     ),
-                    Icon(
-                      Icons.keyboard_arrow_right,
-                      color: primaryColor,
-                      size: 50,
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ],
