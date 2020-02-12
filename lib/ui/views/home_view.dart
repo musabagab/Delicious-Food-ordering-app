@@ -4,6 +4,7 @@ import 'package:delicious/ui/shared/text_styles.dart';
 import 'package:delicious/ui/shared/ui_helpers.dart';
 import 'package:delicious/ui/views/base_view.dart';
 import 'package:delicious/ui/widgets/home/app_drawer.dart';
+import 'package:delicious/ui/widgets/home/meal_category_item.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -20,35 +21,7 @@ class HomeView extends StatelessWidget {
         body: SafeArea(
           child: ListView(
             children: <Widget>[
-              Card(
-                child: InkWell(
-                  onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            CircleAvatar(
-                              radius: 30,
-                            ),
-                            UIHelper.horizontalSpaceSmall(),
-                            Text(
-                              'Snacks',
-                            ),
-                          ],
-                        ),
-                        Icon(
-                          Icons.keyboard_arrow_right,
-                          color: primaryColor,
-                          size: 50,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              MealCategoryItem(),
             ],
           ),
         ),
