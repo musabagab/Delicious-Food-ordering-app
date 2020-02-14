@@ -4,11 +4,11 @@ import 'package:delicious/locator.dart';
 
 class HomeModel extends BaseModel {
   FirestoreService _firestoreService = locator<FirestoreService>();
-
   Future getMealsCategories() async {
     try {
       var categories = await _firestoreService.getMealCategories();
-      return categories != null;
+      print(categories);
+      return categories.documents.toString();
     } catch (e) {
       return e.message;
     }

@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:delicious/core/models/meal.dart';
 import 'package:delicious/core/models/user.dart';
 import 'package:flutter/services.dart';
 
@@ -8,6 +7,7 @@ class FirestoreService {
       Firestore.instance.collection("users");
   final CollectionReference _mealsCollectionReference =
       Firestore.instance.collection("meals");
+
   Future createUser(User user) async {
     try {
       await _usersCollectionReference.document(user.id).setData(user.toJson());
@@ -28,9 +28,10 @@ class FirestoreService {
     }
   }
 
-  Future addMeal(Meal meal) async {
+  Future getMealCategories() async {
     try {
-      await _mealsCollectionReference.add(meal.toMap());
+      QuerySnapshot categories = await _mealsCollectionReference.getDocuments();
+      return categories.documents.toString();
     } catch (e) {
       if (e is PlatformException) {
         return e.message;
@@ -38,6 +39,4 @@ class FirestoreService {
       return e.toString();
     }
   }
-
-  Future getMealCategories() async {}
 }
