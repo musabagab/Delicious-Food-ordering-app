@@ -7,7 +7,8 @@ class HomeModel extends BaseModel {
 
   Future getMealsCategories() async {
     try {
-      val categories = await _firestoreService.getMealCategories();
+      var categories = await _firestoreService.getMealCategories();
+      return categories != null;
     } catch (e) {
       return e.message;
     }
