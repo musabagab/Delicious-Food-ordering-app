@@ -3,7 +3,7 @@ import 'package:delicious/core/models/meal.dart';
 import 'package:delicious/core/models/user.dart';
 import 'package:flutter/services.dart';
 
-class FirestoreService {  
+class FirestoreService {
   final CollectionReference _usersCollectionReference =
       Firestore.instance.collection("users");
   final CollectionReference _mealsCollectionReference =
@@ -38,4 +38,6 @@ class FirestoreService {
       return e.toString();
     }
   }
+
+  Future getMealCategories() async {}
 }

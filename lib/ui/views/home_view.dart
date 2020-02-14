@@ -1,7 +1,5 @@
 import 'package:delicious/core/viewmodels/home_model.dart';
-import 'package:delicious/ui/shared/app_colors.dart';
-import 'package:delicious/ui/shared/text_styles.dart';
-import 'package:delicious/ui/shared/ui_helpers.dart';
+
 import 'package:delicious/ui/views/base_view.dart';
 import 'package:delicious/ui/widgets/home/app_drawer.dart';
 import 'package:delicious/ui/widgets/home/meal_category_item.dart';
@@ -13,6 +11,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView<HomeModel>(
+      onModelReady: (model) => model.getMealsCategories(),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           title: Center(child: Text('Menu')),
@@ -20,8 +19,13 @@ class HomeView extends StatelessWidget {
         drawer: AppDrawer(),
         body: SafeArea(
           child: ListView(
+            padding: EdgeInsets.all(5),
             children: <Widget>[
-              MealCategoryItem(),
+              MealCategoryItem(
+                categoryImageUrl:
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjpMLfzv7GLFxbtHXyCSER4PgA1nQ-kCWK4Ie_2xPEy3gJjo-S',
+                categoryName: 'Snacks',
+              ),
             ],
           ),
         ),
