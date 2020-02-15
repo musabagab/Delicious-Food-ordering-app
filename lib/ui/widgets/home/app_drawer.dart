@@ -14,41 +14,28 @@ class AppDrawer extends StatelessWidget {
         shrinkWrap: true,
         children: <Widget>[
           CircleImage(),
-          buildDrawerItem(),
-          Card(
-            child: ListTile(
-              leading: Icon(Icons.view_list),
-              title: Text('Orders'),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              leading: Icon(Icons.local_offer),
-              title: Text('Offers'),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              leading: Icon(Icons.call_end),
-              title: Text('Support'),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-            ),
-          ),
+          buildDrawerItem('Menu', Icons.restaurant_menu),
+          buildDrawerItem('Orders', Icons.view_list),
+          buildDrawerItem('Offers', Icons.local_offer),
+          buildDrawerItem('Support', Icons.call_end),
+          buildDrawerItem('Settings', Icons.settings),
         ],
       ),
     );
   }
 
-  Card buildDrawerItem() {
+  Card buildDrawerItem(String title, IconData icon) {
     return Card(
       child: ListTile(
-        leading: Icon(Icons.restaurant_menu),
-        title: Text('Menu'),
+        leading: Icon(
+          icon,
+          size: 50,
+        ),
+        title: Center(
+            child: Text(
+          title,
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400),
+        )),
       ),
     );
   }
