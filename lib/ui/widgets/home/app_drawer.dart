@@ -24,18 +24,21 @@ class AppDrawer extends StatelessWidget {
     );
   }
 
-  Card buildDrawerItem(String title, IconData icon) {
+  Widget buildDrawerItem(String title, IconData icon) {
     return Card(
-      child: ListTile(
-        leading: Icon(
-          icon,
-          size: 50,
+      child: InkWell(
+        onTap: () {},
+        child: ListTile(
+          leading: Icon(
+            icon,
+            size: 50,
+          ),
+          title: Center(
+              child: Text(
+            title,
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400),
+          )),
         ),
-        title: Center(
-            child: Text(
-          title,
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400),
-        )),
       ),
     );
   }
