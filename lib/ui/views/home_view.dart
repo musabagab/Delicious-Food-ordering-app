@@ -1,4 +1,5 @@
 import 'package:delicious/core/viewmodels/home_model.dart';
+import 'package:delicious/ui/shared/text_styles.dart';
 
 import 'package:delicious/ui/views/base_view.dart';
 import 'package:delicious/ui/widgets/home/app_drawer.dart';
@@ -14,7 +15,13 @@ class HomeView extends StatelessWidget {
       onModelReady: (model) => model.getMealsCategories(),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
-          title: Center(child: Text('Menu')),
+          title: Align(
+            alignment: Alignment.center,
+            child: Text(
+              'Menu',
+              style: TextStyle(fontSize: 30),
+            ),
+          ),
         ),
         drawer: AppDrawer(),
         body: SafeArea(

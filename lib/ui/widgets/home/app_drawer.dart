@@ -29,9 +29,12 @@ class AppDrawer extends StatelessWidget {
       child: InkWell(
         onTap: () {},
         child: ListTile(
-          leading: Icon(
-            icon,
-            size: 50,
+          leading: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Icon(
+              icon,
+              size: 50,
+            ),
           ),
           title: Center(
               child: Text(
