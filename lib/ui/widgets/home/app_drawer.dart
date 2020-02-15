@@ -10,14 +10,11 @@ class AppDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
+        itemExtent: 110,
+        shrinkWrap: true,
         children: <Widget>[
           CircleImage(),
-          Card(
-            child: ListTile(
-              leading: Icon(Icons.restaurant_menu),
-              title: Text('Menu'),
-            ),
-          ),
+          buildDrawerItem(),
           Card(
             child: ListTile(
               leading: Icon(Icons.view_list),
@@ -43,6 +40,15 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Card buildDrawerItem() {
+    return Card(
+      child: ListTile(
+        leading: Icon(Icons.restaurant_menu),
+        title: Text('Menu'),
       ),
     );
   }
