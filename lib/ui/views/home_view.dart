@@ -31,7 +31,7 @@ class HomeView extends StatelessWidget {
               MealCategoryItem(
                 categoryImageUrl:
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjpMLfzv7GLFxbtHXyCSER4PgA1nQ-kCWK4Ie_2xPEy3gJjo-S',
-                categoryName: 'Snacks',
+                categoryName: 'Chinease',
               ),
             ],
           ),
