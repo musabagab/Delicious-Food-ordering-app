@@ -18,7 +18,7 @@ class HomeView extends StatelessWidget {
           title: Align(
             alignment: Alignment.center,
             child: Text(
-              'Menu',
+              'Menu ',
               style: TextStyle(fontSize: 30),
             ),
           ),
